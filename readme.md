@@ -2,7 +2,13 @@
 
 Gympass style app 
 
-API - SOLID
+## Workflows
+
+- [x] Alinhar Requisitos e planejamento;
+- [x] Inicializar projeto;
+- [x] Inicializar Node e servidor;
+- [x] Configurar Eslint
+
 
 ## RFS (Requisitos Funcionais)
 
