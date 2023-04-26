@@ -2,18 +2,24 @@ lockfileVersion: '6.0'
 
 dependencies:
   fastify:
-    specifier: ^4.16.0
+    specifier: 4.16.0
     version: 4.16.0
+  zod:
+    specifier: 3.21.4
+    version: 3.21.4
 
 devDependencies:
   '@types/node':
-    specifier: ^18.16.1
+    specifier: 18.16.1
     version: 18.16.1
+  dotenv:
+    specifier: 16.0.3
+    version: 16.0.3
   tsx:
-    specifier: ^3.12.6
+    specifier: 3.12.6
     version: 3.12.6
   typescript:
-    specifier: ^5.0.4
+    specifier: 5.0.4
     version: 5.0.4
 
 packages:
@@ -344,6 +350,11 @@ packages:
     dependencies:
       ms: 2.1.2
     dev: false
+
+  /dotenv@16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: true
 
   /esbuild@0.17.18:
     resolution: {integrity: sha512-z1lix43jBs6UKjcZVKOw2xx69ffE2aG0PygLL5qJ9OS/gy0Ewd1gW/PUQIOIQGXBHWNywSc0floSKoMFF8aK2w==}
@@ -687,4 +698,8 @@ packages:
 
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+    dev: false
+
+  /zod@3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
