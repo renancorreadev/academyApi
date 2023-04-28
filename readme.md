@@ -9,6 +9,8 @@ Gympass style app
 - [x] Inicializar Node e servidor;
 - [x] Configurar Eslint
 - [x] Configurar docker com prisma and postgresql
+- [x] Criar Rota de criacao de usuarios
+- [x] Aplicar DDD e separar Servicos e Controllers
 
 
 ## RFS (Requisitos Funcionais)
