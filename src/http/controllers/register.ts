@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { z } from 'zod'
 import { type FastifyRequest, type FastifyReply } from 'fastify'
-import { registerService } from '@/services/register'
+import { RegisterService } from '@/services/register'
+import { PrismaUserRepository } from '../../repository/prisma-users-repository'
 
 export async function register (request: FastifyRequest, reply: FastifyReply): Promise<any> {
   const registerBodySchema = z.object({
@@ -13,7 +14,11 @@ export async function register (request: FastifyRequest, reply: FastifyReply): P
   const { name, email, password } = registerBodySchema.parse(request.body)
 
   try {
-    await registerService({
+    /** Instance userRepository to pass parameter Register Service  */
+    const userRepository = new PrismaUserRepository()
+    const registerService = new RegisterService(userRepository)
+
+    await registerService.handle({
       name,
       email,
       password

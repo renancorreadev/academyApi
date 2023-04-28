@@ -12,5 +12,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-    }
+        "camelcase": "off",
+        "no-useless-constructor": "off"
+    } 
 }

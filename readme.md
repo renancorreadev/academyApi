@@ -11,6 +11,7 @@ Gympass style app
 - [x] Configurar docker com prisma and postgresql
 - [x] Criar Rota de criacao de usuarios
 - [x] Aplicar DDD e separar Servicos e Controllers
+- [x] Aplicar Inversão de dependencia (SOLID)
 
 
 ## RFS (Requisitos Funcionais)
