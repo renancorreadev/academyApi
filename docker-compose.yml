@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  api-academy: 
+    image: bitnami/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=Astro119
+      - POSTGRESQL_DATABASE=academy
+      - POSTGRESQL_PORT_NUMBER=5432
