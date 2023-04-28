@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { prisma } from '@/lib/prisma'
+import { type UsersRepository } from '@/repository/prisma/users-repository'
 
 import { hash } from 'bcryptjs'
 
@@ -10,9 +11,7 @@ interface RegisterServiceParams {
 }
 
 export class RegisterService {
-  constructor (private readonly usersRepository: any) {
-
-  }
+  constructor (private readonly usersRepository: UsersRepository) { }
 
   async handle ({
     name,
