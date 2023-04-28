@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { prisma } from '@/lib/prisma'
+import { PrismaUserRepository } from '@/repository/prisma-users-repository'
 import { hash } from 'bcryptjs'
 
 interface RegisterServiceParams {
@@ -25,11 +26,11 @@ export async function registerService ({
     throw new Error('Email already in use')
   }
 
-  await prisma.user.create({
-    data: {
-      name,
-      email,
-      password_hash
-    }
+  const prismaUserRepository = new PrismaUserRepository()
+
+  await prismaUserRepository.create({
+    name,
+    email,
+    password_hash
   })
 }
