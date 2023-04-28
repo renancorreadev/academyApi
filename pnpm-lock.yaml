@@ -4,6 +4,9 @@ dependencies:
   '@prisma/client':
     specifier: 4.13.0
     version: 4.13.0(prisma@4.13.0)
+  bcryptjs:
+    specifier: 2.4.3
+    version: 2.4.3
   fastify:
     specifier: 4.16.0
     version: 4.16.0
@@ -678,6 +681,10 @@ packages:
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bcryptjs@2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /brace-expansion@1.1.11:
