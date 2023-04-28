@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { type UsersRepository } from '@/repository/prisma/users-repository'
-import { hash } from 'bcryptjs'
+import { type BcryptRepository, type UsersRepository } from '@/repository'
 
 interface RegisterServiceParams {
   name: string
@@ -9,14 +7,17 @@ interface RegisterServiceParams {
 }
 
 export class RegisterService {
-  constructor (private readonly usersRepository: UsersRepository) { }
+  constructor (
+    private readonly usersRepository: UsersRepository,
+    private readonly bcryptRepository: BcryptRepository
+  ) { }
 
   async handle ({
     name,
     email,
     password
   }: RegisterServiceParams): Promise<any> {
-    const password_hash = await hash(password, 6)
+    const password_hash = await this.bcryptRepository.hash(password, 6)
 
     const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
