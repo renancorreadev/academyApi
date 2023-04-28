@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { prisma } from '@/lib/prisma'
 import { type UsersRepository } from '@/repository/prisma/users-repository'
-
 import { hash } from 'bcryptjs'
 
 interface RegisterServiceParams {
@@ -20,11 +18,7 @@ export class RegisterService {
   }: RegisterServiceParams): Promise<any> {
     const password_hash = await hash(password, 6)
 
-    const userWithSameEmail = await prisma.user.findUnique({
-      where: {
-        email
-      }
-    })
+    const userWithSameEmail = await this.usersRepository.findByEmail(email)
 
     if (userWithSameEmail != null) {
       throw new Error('Email already in use')
