@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import fastify from 'fastify'
-import { register } from './http/controllers/register'
+import { appRoutes } from './http/routes'
 
 export const app = fastify()
 
-app.post('/users', register)
+app.register(appRoutes)
