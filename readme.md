@@ -8,6 +8,7 @@ Gympass style app
 - [x] Inicializar projeto;
 - [x] Inicializar Node e servidor;
 - [x] Configurar Eslint
+- [x] Configurar docker com prisma and postgresql
 
 
 ## RFS (Requisitos Funcionais)
