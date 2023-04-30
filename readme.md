@@ -12,6 +12,8 @@ Gympass style app
 - [x] Criar Rota de criacao de usuarios
 - [x] Aplicar DDD e separar Servicos e Controllers
 - [x] Aplicar Inversão de dependencia (SOLID)
+- [x] Criar Errors Handlers para os casos de usos (servicos)
+- [ ] Criar testes unitarios
 
 
 ## RFS (Requisitos Funcionais)
