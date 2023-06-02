@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { z } from 'zod'
 import { type FastifyRequest, type FastifyReply } from 'fastify'
-import { PrismaUserRepository } from '@/repository'
-import { AuthenticateService } from '@/services/auth/authenticate'
 import { InvalidCredentialsError } from '@/services/errors/invalid-credentials-error'
+import { makeAuthenticateUseCase } from '@/services/factories/make-authenticate-use-case'
 
 export async function authenticate (request: FastifyRequest, reply: FastifyReply): Promise<any> {
   const authenticateBodySchema = z.object({
@@ -14,11 +13,7 @@ export async function authenticate (request: FastifyRequest, reply: FastifyReply
   const { email, password } = authenticateBodySchema.parse(request.body)
 
   try {
-    /** Instance all Repository dependencies */
-    const userRepository = new PrismaUserRepository()
-
-    /** Instance the service with repositorys */
-    const authenticateService = new AuthenticateService(userRepository)
+    const authenticateService = makeAuthenticateUseCase()
 
     await authenticateService.execute({
       email,
