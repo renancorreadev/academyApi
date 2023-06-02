@@ -33,7 +33,7 @@ describe('Get User Profile Use Case Service', () => {
   })
 
   it('should not be able to authenticate with wrong email', async () => {
-    void expect(async () =>
+    await expect(async () =>
       await sut.execute({
         userId: 'non-exists'
       })
