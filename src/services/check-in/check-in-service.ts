@@ -2,6 +2,7 @@
 import { type CheckIn } from '@prisma/client'
 import { type CheckInsRepository } from '@/repository/check-ins/check-ins-repository-model'
 import { type AcademyRepository } from '@/repository/academy/academy-repository-model'
+import { getDistanceBetweenCoordinates } from '@/utils/get-distance-coordinate'
 
 interface CheckInServiceRequest {
   userId: string
@@ -20,14 +21,23 @@ export class CheckInService {
     private readonly academyRepository: AcademyRepository
   ) {}
 
-  async execute ({ userId, gymID }: CheckInServiceRequest): Promise<CheckInServiceResponse> {
+  async execute ({ userId, gymID, userLatitude, userLongitude }: CheckInServiceRequest): Promise<CheckInServiceResponse> {
     const academy = await this.academyRepository.findById(gymID)
 
     if (academy == null) {
       throw new Error('Academy not found')
     }
 
-    // calculate distance between user and academy
+    // calculate distance between user and academy if > 100 m (0.1 km) throw error
+    const distance = getDistanceBetweenCoordinates(
+      { latitude: userLatitude, longitude: userLongitude },
+      { latitude: academy.latitude.toNumber(), longitude: academy.longitude.toNumber() }
+    )
+
+    const MAX_DISTANCE_IN_KM = 0.1
+    if (distance > MAX_DISTANCE_IN_KM) {
+      throw new Error('Academy is too far from you')
+    }
 
     const checkInOnSameDay = await this.checkInRepository.findByUserIdOnDate(userId, new Date())
 
