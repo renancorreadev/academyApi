@@ -1,7 +1,14 @@
 version: '3'
 
 services:
-  api-academy: 
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+
+  mysql:
     image: bitnami/postgresql
     ports:
       - "5432:5432"
